@@ -1,0 +1,14 @@
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\bin\Debug\QuanLyDangKyTinChi.exe.config
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\bin\Debug\QuanLyDangKyTinChi.exe
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\bin\Debug\QuanLyDangKyTinChi.pdb
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.FrmChonSinhVien.resources
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.FrmDangKyHocPhan.resources
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.FrmMain.resources
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.FrmNhaTruong.resources
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.Properties.Resources.resources
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.exe
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.pdb
+C:\Users\Admin\source\repos\QuanLyDangKyTinChi\QuanLyDangKyTinChi\obj\Debug\QuanLyDangKyTinChi.exe.config

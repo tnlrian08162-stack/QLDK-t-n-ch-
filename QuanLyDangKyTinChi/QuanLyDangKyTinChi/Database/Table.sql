@@ -1,0 +1,87 @@
+use  master;
+go
+
+
+if exists (select * from sys.databases where name = 'QuanLyDangKyHocPhan')
+begin 
+alter database QuanLyDangKyHocPhan set single_user with rollback immediate;
+drop database QuanLyDangKyHocPhan;
+end
+go
+
+CREATE DATABASE QuanLyDangKyHocPhan;
+GO
+USE QuanLyDangKyHocPhan;
+GO
+
+
+CREATE TABLE SinhVien (
+    MaSV VARCHAR(20) PRIMARY KEY,
+    HoTen NVARCHAR(50) NOT NULL,
+    NgaySinh DATE NULL,
+    Nganh NVARCHAR(50) NULL,
+    ChuyenNganh NVARCHAR(50) NULL,
+    BacDaoTao NVARCHAR(50) NULL,
+    KhoaHoc NVARCHAR(50) NULL
+);
+
+CREATE TABLE HocPhan (
+    MaHP VARCHAR(20) PRIMARY KEY,
+    TenHP NVARCHAR(50) NOT NULL,
+    SoTinChi INT NOT NULL CHECK (SoTinChi > 0),
+    BatBuoc BIT DEFAULT 0 -- (0: T�?chọn, 1: Bắt buộc)
+);
+
+CREATE TABLE DieuKienHocPhan (
+    MaHP VARCHAR(20),
+    MaHP_TienQuyet VARCHAR(20),
+    LoaiDieuKien NVARCHAR(50) NOT NULL CHECK (LoaiDieuKien IN (N'Tiên quyết', N'Song hành')),
+    PRIMARY KEY (MaHP, MaHP_TienQuyet),
+    FOREIGN KEY (MaHP) REFERENCES HocPhan(MaHP),
+    FOREIGN KEY (MaHP_TienQuyet) REFERENCES HocPhan(MaHP)
+);
+
+CREATE TABLE HocKy (
+    MaHK VARCHAR(20) PRIMARY KEY,
+    TenHK NVARCHAR(50) NOT NULL,
+    NamHoc INT NOT NULL,
+    NgayMoDangKy DATETIME NOT NULL,
+    NgayDongDangKy DATETIME NOT NULL,
+    CONSTRAINT CK_ThoiGianDangKy CHECK (NgayDongDangKy >= NgayMoDangKy)
+);
+
+CREATE TABLE LopHocPhan (
+    MaLHP VARCHAR(20) PRIMARY KEY,
+    SoLuongDangKy INT DEFAULT 0 CHECK (SoLuongDangKy >= 0),
+    SiSoToiDa INT NOT NULL CHECK (SiSoToiDa > 0),
+    MaHP VARCHAR(20),
+    MaHK VARCHAR(20),
+    FOREIGN KEY (MaHP) REFERENCES HocPhan(MaHP),
+    FOREIGN KEY (MaHK) REFERENCES HocKy(MaHK)
+);
+
+CREATE TABLE ChiTietLopHocPhan (
+    MaCTLHP VARCHAR(20) PRIMARY KEY,
+    NgayBatDau DATETIME NOT NULL,
+    NgayKetThuc DATETIME NOT NULL,
+    ThuHoc NVARCHAR(20) NOT NULL,
+    CaHoc NVARCHAR(20) NOT NULL,
+    PhongHoc NVARCHAR(50) NOT NULL,
+    MaLHP VARCHAR(20),
+    CONSTRAINT CK_ThoiGianHoc CHECK (NgayKetThuc >= NgayBatDau),
+    FOREIGN KEY (MaLHP) REFERENCES LopHocPhan(MaLHP)
+);
+
+CREATE TABLE DangKyHocPhan (
+    MaDK VARCHAR(50) PRIMARY KEY,
+    TrangThai NVARCHAR(50) NOT NULL,
+    LoaiDangKy NVARCHAR(50) NOT NULL,
+    NgayDK DATETIME DEFAULT GETDATE(),
+    MaSV VARCHAR(20),
+    MaLHP VARCHAR(20),
+    CONSTRAINT UQ_SinhVien_LopHocPhan UNIQUE (MaSV, MaLHP),
+    FOREIGN KEY (MaSV) REFERENCES SinhVien(MaSV),
+    FOREIGN KEY (MaLHP) REFERENCES LopHocPhan(MaLHP)
+);
+
+
