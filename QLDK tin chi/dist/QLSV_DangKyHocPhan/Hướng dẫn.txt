@@ -1,0 +1,24 @@
+Để chạy phần mềm bằng file `.exe` trên máy tính, bạn cần thực hiện các bước :
+
+Bước 1: Chuẩn bị từ máy tính của bạn (Copy vào USB)
+ **Build file .exe: xem hướng dẫn README.md.
+
+---
+
+Bước 2: Thiết lập Database 
+Máy của Bạn BẮT BUỘC phải có cài đặt sẵn SQL Server và SQL Server Management Studio (SSMS). 
+
+1. Mở SSMS trên máy giáo viên và kết nối vào Server.
+2. Mở và chạy lần lượt các file script trong thư mục `database/` từ USB **theo đúng thứ tự sau** để tạo CSDL: trc đó chạy rồi thì thôi
+
+Bước 3: Cấu hình file `.env` trên máy
+
+1. Mở file `.env` bằng Notepad và sửa lại thông tin:
+   ```env
+   server=TEN_SERVER_CUA_Ban  # (VD: DESKTOP-ABC\SQLEXPRESS - Lấy ở màn hình đăng nhập SSMS)
+   database=QuanLyDangKyHocPhan
+   driver={ODBC Driver 17 for SQL Server} # (Hoặc ODBC Driver 18)
+   ```
+
+
+Bước 4: Chạy main.py
